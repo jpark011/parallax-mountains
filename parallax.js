@@ -1,20 +1,16 @@
-const stars = document.querySelector('#stars');
-const moon = document.querySelector('#moon');
-const mountainsFront = document.querySelector('#mountains_front');
-const mountainsBehind = document.querySelector('#mountains_behind');
-
-const btn = document.querySelector('#btn');
+const layer1 = document.querySelector('#layer1');
+const layer2 = document.querySelector('#layer2');
 const text = document.querySelector('#text');
-
-const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
 
-  stars.style.transform = `translateX(${scrollY * 0.25}px)`;
-  moon.style.transform = `translateY(${scrollY * 1.05}px)`;
-  mountainsBehind.style.transform = `translateY(${scrollY * 0.5}px)`;
-  text.style.transform = `translate(${scrollY * -5}px, ${scrollY * 1.0}px)`;
-  btn.style.transform = `translateY(${scrollY * 1.0}px)`;
-  header.style.transform = `translateY(${scrollY * 0.5}px)`;
+  layer1.style.transform = `perspective(1000px) translate3d(${
+    scrollY * -0.5
+  }px, ${scrollY * -0.25}px, ${scrollY * 4}px)`;
+  layer2.style.transform = `perspective(1000px) translate3d(${
+    scrollY * 0.5
+  }px, ${scrollY * -0.25}px, ${scrollY * 4}px)`;
+
+  text.style.transform = `translateY(${scrollY * -2}px`;
 });
